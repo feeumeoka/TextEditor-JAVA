@@ -1,6 +1,9 @@
 public class EditorTexto{
-    public static void main(String[] args) {
-    Documento lista = new Documento();
+    private Documento doc;
+    private Historico hist;
 
+    public EditorTexto(){
+        doc = new Documento();
+        hist = new Historico();
     }
 }
