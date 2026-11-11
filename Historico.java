@@ -6,30 +6,22 @@ public class Historico {
     }
 
     public void adicionarHistórico(String texto){
-        No versao = new No(texto);
-        adicionarHistórico(raiz, versao);
+        raiz = adicionarHistórico(raiz, texto);
     }
 
-    private void adicionarHistórico(No raiz, No texto){
+    private No adicionarHistórico(No no, String texto){
         
-        if(estaVazia()) {
-            raiz = texto;
-            return;
+        if(no == null) {
+            return new No(texto);
         }
-
-
-
-
-
+        no.direita = adicionarHistórico(no.direita, texto);
+        return no;
     }
-
-
-
-
 
     private class No {
         private String texto;
-        private int id;
+        private No direita;
+        private No esquerda;
 
 
         public No(String texto){
